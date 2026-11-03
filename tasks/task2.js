@@ -7,8 +7,16 @@
 "https://jsonplaceholder.typicode.com/users - адреса куди робити запит"
 
 
-function createUser(user) {
-  // Ваш код
+async function createUser(user) {
+  const response = await fetch("https://jsonplaceholder.typicode.com/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(user)
+  });
+
+  return await response.json();
 }
 
 console.log(createUser({name: "Sam", email: "fjsnfkjns2342@gmail.com"}))
